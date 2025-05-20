@@ -1,2 +1,2 @@
 #!/bin/bash
-sduo iptables -S
+sudo iptables -S
