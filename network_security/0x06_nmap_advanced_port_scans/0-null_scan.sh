@@ -1,1 +1,1 @@
-sudo nmap -sN -p 20-25 $1
+sudo nmap -sN $1 -p 20-25
