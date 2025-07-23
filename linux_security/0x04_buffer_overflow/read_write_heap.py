@@ -59,9 +59,7 @@ def search_and_replace(pid, start, end, search_str, replace_str):
             padded = replace_str + '\x00' * (len(search_str)
                                              - len(replace_str))
             mem_file.write(padded.encode())
-            print(
-                f"Replaced '{search_str}' with '{replace_str}' in proc {pid}"
-            )
+            print("SUCCESS!")
     except PermissionError:
         print("Error: Permission denied. Try running the script with sudo")
         sys.exit(1)
