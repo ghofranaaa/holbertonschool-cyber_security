@@ -6,6 +6,7 @@ import os
 This module searches for a string in the heap process and replaces it.
 """
 
+
 def print_usage():
     print("Usage: argv must be 4")
     sys.exit(1)
