@@ -3,7 +3,8 @@ import sys
 import os
 
 """
-This module searches for a string in the heap of a process and replaces it.
+This module performs read and write operations on the heap memory of a running process.
+It can search for and replace strings in the memory space of a given PID.
 """
 
 
