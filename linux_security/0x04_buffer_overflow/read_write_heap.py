@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-import sys
-import os
 
 """
 This module performs read and write operations on the heap memory of a running process.
 It can search for and replace strings in the memory space of a given PID.
 """
+
+import sys
+import os
 
 
 def print_usage():
