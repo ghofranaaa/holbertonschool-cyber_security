@@ -1,24 +1,29 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import sys
 import os
 
 """
-This module searches for a string in the heap process and replaces it.
+This module searches for a string in the heap of a process and replaces it.
 """
 
 
 def print_usage():
-    print("Usage: argv must be 4")
+    """Prints usage error and exits."""
+    print("Usage: ./read_write_heap.py <pid> <search_string> <replace_string>")
     sys.exit(1)
 
+
 def validate_args():
+    """Validates command-line arguments."""
     if len(sys.argv) != 4:
         print_usage()
     if len(sys.argv[3]) > len(sys.argv[2]):
         print("Error: argv[3] must be equal or shorter than argv[2]")
         sys.exit(1)
 
+
 def get_heap_address(pid):
+    """Gets the start and end address of the heap region of a process."""
     try:
         with open(f"/proc/{pid}/maps", 'r') as maps_file:
             for line in maps_file:
@@ -35,7 +40,9 @@ def get_heap_address(pid):
         print(f"Error: PID {pid} not found")
         sys.exit(1)
 
+
 def search_and_replace(pid, start, end, search_str, replace_str):
+    """Searches and replaces a string in the heap of the target process."""
     try:
         mem_path = f"/proc/{pid}/mem"
         with open(mem_path, 'r+b') as mem_file:
@@ -47,12 +54,15 @@ def search_and_replace(pid, start, end, search_str, replace_str):
                 sys.exit(1)
 
             mem_file.seek(start + index)
-            padded = replace_str + '\x00' * (len(search_str) - len(replace_str))
+            padded = replace_str + '\x00' * (len(search_str)
+                                             - len(replace_str))
             mem_file.write(padded.encode())
-            print(f"Replaced '{search_str}' with '{replace_str}' in process {pid}")
+            print(f"Replaced '{search_str}' with '{replace_str}'
+                  in process {pid}")
     except PermissionError:
         print("Error: Permission denied. Try running the script with sudo")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     validate_args()
@@ -61,4 +71,5 @@ if __name__ == "__main__":
     replace_str = sys.argv[3]
 
     start_address, end_address = get_heap_address(pid)
-    search_and_replace(pid, start_address, end_address, search_str, replace_str)
+    search_and_replace(pid, start_address, end_address,
+                       search_str, replace_str)
