@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 """
-This module performs read and write operations on the heap memory of a running process.
+This module performs read and write operations on the
+heap memory of a running process.
 It can search for and replace strings in the memory space of a given PID.
 """
 
