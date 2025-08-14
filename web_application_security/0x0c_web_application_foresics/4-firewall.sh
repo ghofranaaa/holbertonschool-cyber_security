@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -i "/sbin/iptables -A 	INPUT" auth.log | wc -l
+grep -i "/sbin/iptables -A INPUT" auth.log | wc -l
