@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo nmap -sA -T1000 $1 -p -reason $2
+sudo nmap -sA $1 -p $2 --reason --host-timeout 1000ms
