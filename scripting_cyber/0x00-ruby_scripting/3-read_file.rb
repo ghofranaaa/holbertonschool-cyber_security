@@ -10,7 +10,7 @@ def count_user_ids(path)
 		count[entry["userId"]] += 1
 	end
 
-	count.sort.each do |user_id, count|
-		puts "#{user_id}: #{count}"
+	count.sort.each do |count, user_id|
+		puts "#{count}: #{user_id}"
 	end
 end
