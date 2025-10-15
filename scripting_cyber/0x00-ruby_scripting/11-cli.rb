@@ -11,7 +11,7 @@ options = {}
 OptionParser.new do |opts|
 	opts.banner = "Usage: cli.rb [options]"
 
-	opts.on("-a", "--add TASK", "Add new task") do |task|
+	opts.on("-a", "--add TASK", "Add a new task") do |task|
 		options[:add] = task
 	end
 
