@@ -1,2 +1,2 @@
 #!/bin/bash
-semange user -1
+semanage user -1
